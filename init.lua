@@ -9,7 +9,6 @@ local function split(str, sep)
 end
 
 local function load_env(filePath)
-
   assert(
     FS.existsSync(filePath),
     "Invalid file path \""..filePath.."\""
