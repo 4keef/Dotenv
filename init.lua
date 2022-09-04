@@ -9,14 +9,13 @@ local function split(str, sep)
 end
 
 local function load_env(filePath)
-  local file = nil
 
   assert(
     FS.existsSync(filePath),
     "Invalid file path \""..filePath.."\""
   )
 
-  file = io.open(filePath, "r")
+  local file = io.open(filePath, "r")
 
   _ENV = {}
   for line in file:lines() do local v = split(line, "=") _ENV[v[1]] = v[2] end
