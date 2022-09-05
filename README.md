@@ -13,7 +13,9 @@ local Dotenv = require('Dotenv')
 -- Pass in the path
 Dotenv.load_env(path)
 
--- Get values via _ENV
-print(_ENV.API_KEY)
+local env = require('env')
+
+-- Get values via env module
+print(env.get('TEST'))
 ```
 
