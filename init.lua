@@ -16,7 +16,7 @@ local function load_env(path)
   local file = io.open(path, "r")
   for line in file:lines()
   do
-    env.set(split(line, "="))
+    env.set(unpack(split(line, "=")))
   end
   file:close()
   return true
