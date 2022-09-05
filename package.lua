@@ -1,5 +1,5 @@
   return {
-    name = "Dotenv",
+    name = "4keef/Dotenv",
     version = "0.0.1",
     description = "Parse dotenv files",
     tags = { "lua", "lit", "luvit", "dotenv", "parser" },

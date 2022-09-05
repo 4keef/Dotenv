@@ -1,23 +1,32 @@
-local FS = require('fs')
-local PATH  = require('path')
+local fs = require('fs')
+local env = require('env')
 
 local function split(str, sep)
   sep = sep or "%s"
   local t = {}
-  for v in string.gmatch(str, "([^"..sep.."]+)") do table.insert(t, v) end
+
+  for v in string.gmatch(str, "([^"..sep.."]+)")
+  do
+    table.insert(t, v)
+  end
+
   return t
 end
 
-local function load_env(filePath)
+local function load_env(path)
   assert(
-    FS.existsSync(filePath),
-    "Invalid file path \""..filePath.."\""
+    fs.existsSync(path),
+    "Invalid file path \""..path.."\""
   )
 
-  local file = io.open(filePath, "r")
+  local file = io.open(path, "r")
 
-  _ENV = {}
-  for line in file:lines() do local v = split(line, "=") _ENV[v[1]] = v[2] end
+  for line in file:lines()
+  do
+    local v = split(line, "=")
+    env.set(unpack(v))
+  end
+
   file:close()
   return true
 end
