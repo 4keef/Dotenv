@@ -55,7 +55,7 @@ function M.load_env(route)
     table.insert(parsed, inner)
   end
 
-  for _, p in ipairs(parsed) do M.set_key(unpack(p)) end
+  for _, p in ipairs(parsed) do M.set_value(unpack(p)) end
   return io.close(dotenv)
 end
 
