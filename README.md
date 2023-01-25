@@ -11,11 +11,15 @@ Basic usage
 local Dotenv = require('Dotenv')
 
 -- Pass in the path
-Dotenv.load_env(path)
+Dotenv.load_env(path_to_env)
 
-local env = require('env')
+-- Call without the path 
+Dotenv.load_env() 
 
--- Get values via env module
-print(env.get('TEST'))
+-- Get value using key
+Dotenv.get_value("test")
+
+-- Set value of enviroment variable 
+Dotenv.set_value("test", 1000)
 ```
 
